@@ -4,16 +4,25 @@ CSS written by: Gijs
 Most selectors you’ll need are here. Feel free to add as many as you need.
 */
 
+* {
+	list-style: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 :root {
---background-color-body: rgb(0, 0, 0);
---background-color-boxes: rgb(66, 154, 255);
+--background-color-body: #212D40;
+--background-color-boxes: #505B6A;
 --primary-text: rgb(255, 255, 255);
+--accent: #15B9A7;
 --font-fam-main: sans-serif;
 }
 
 html {
 	color: var(--primary-text);
 	font-family: var(--font-fam-main);
+	
 }
 
 body {
@@ -30,7 +39,7 @@ time {
 	
 }
 p a {
-	background-color: green;
+	background-color: rgb(0, 0, 128);
 	text-decoration: none;
 	color: white;
 	
@@ -49,16 +58,22 @@ a[href^="mailto:"] {
 header {
 	margin-top: 20px;
 	background-color: var(--background-color-boxes);
-	border-radius: 10vw 1vw 10vw 1vw;
+	border-radius: 1rem;
 	text-align: center;
+	position: sticky;
+	top: 0;
 }
 
 h1 {
 	font-size: 2rem;
+}
 
-	span:nth-of-type(2) {
-		color: white
-	}
+span:nth-of-type(1) {
+	color: var(--accent);
+}
+
+span:nth-of-type(4) {
+	color: var(--accent);
 }
 
 h2 {
@@ -75,14 +90,33 @@ h4 {
 
 main {
 	background-color: var(--background-color-boxes);
+	border-radius: 1rem;
+	padding: 1rem;
 }
 
 section {
 	background-color: var(--background-color-boxes);
+	border-radius: 1rem;
+}
+
+section#sessions {
+	ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	}
+
+	li {
+		
+	}
+
+	img {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+	}
 }
 
 ul {
-	
+
 }
 li {
 	
@@ -102,16 +136,128 @@ aside:nth-of-type(2) {
 }
 
 details {
+	border-radius: .5rem;
+	width: 100vw;
+	max-width: 400px;
+	margin-left: 1rem;
+	transition: all .4s ease-out;
 	
+
+	summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100%;
+		border-radius: .5rem;
+		padding: 1rem;
+		background-origin: transparent;
+		border: 2px solid black;
+		list-style-type: none;
+
+
+
+		&::before {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all .4s ease-out;
+			transform: rotate(45deg);
+			content: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 12L12 36M12 12L36 36' stroke='%231E1E1E' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+		}
+	}
 }
+
 details[open] {
-	
+	summary {
+		background-color: transparent;
+		border: none;
+		border-radius: .5rem .5rem 0 0;
+
+		&::before {
+			content: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 12L12 36M12 12L36 36' stroke='%231E1E1E' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+			transform: rotate(0deg);
+		}
+	}
+
+	p {
+		width: 70vw;
+		padding: 1rem;
+		border-radius: 0 .5rem .5rem .5rem;
+	}
 }
-summary {
-	
+
+details[open]:nth-of-type(1) {
+
+	summary {
+		background-color: #66E5BF;
+		background-color: var(--green);
+	}
+
+	p {
+		background-color: #66E5BF;
+		background-color: var(--green);
+	}
 }
-summary:focus-visible {
-	
+
+details[open]:nth-of-type(2) {
+	background-color: var(--purple);
+
+	summary {
+		background-color: var(--purple);
+	}
+
+	p {
+		background-color: var(--purple);
+	}
+}
+
+details[open]:nth-of-type(3) {
+	background-color: var(--yellow);
+
+	summary {
+		background-color: var(--yellow);
+	}
+
+	p {
+		background-color: var(--yellow);
+	}
+}
+
+details:nth-of-type(1) {
+
+	summary {
+		background-color: #66E5BF;
+		background-color: var(--green);
+	}
+
+	p {
+		background-color: #66E5BF;
+		background-color: var(--green);
+	}
+}
+
+details:nth-of-type(2) {
+	background-color: var(--purple);
+
+	summary {
+		background-color: var(--purple);
+	}
+
+	p {
+		background-color: var(--purple);
+	}
+}
+
+details:nth-of-type(3) {
+	background-color: var(--yellow);
+
+	summary {
+		background-color: var(--yellow);
+	}
+
+	p {
+		background-color: var(--yellow);
+	}
 }
 
 footer {
